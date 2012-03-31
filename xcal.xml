@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+	<name>xcal</name>
+	<creationDate>2012-03-02</creationDate>
+	<copyright>Copyright (C) 2012. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Francesco Monti</author>
+	<authorEmail>web@imgteam.net</authorEmail>
+	<authorUrl>site.imgteam.net</authorUrl>
+	<version>2.1.1</version>
+	<description>COM_XCAL_DESC</description>
+
+	<scriptfile>script.php</scriptfile>
+
+	<install> <!-- Runs on install -->
+    	<sql>
+        	<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+  		</sql>
+    </install>
+	
+	<modules>
+		<module folder="modules" module="mod_xcalendar" name="xcalendar" />
+	</modules>
+	
+    <uninstall> <!-- Runs on uninstall -->
+    	<sql>
+        	<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+  		</sql>
+   </uninstall>
+   
+   <update> <!-- Runs on update; New in 2.1.1 -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<!-- FILE -->
+		<filename>index.html</filename>
+		<filename>xcal.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<!-- CARTELLE -->
+		<folder>add</folder>
+		<folder>css</folder>
+		<folder>helpers</folder>
+		<folder>js</folder>
+		<folder>models</folder>
+		<folder>template</folder>
+		<folder>views</folder>
+	</files>
+	
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB/en-GB.com_xcal.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_xcalendar.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.com_xcal.ini</language>
+		<language tag="de-DE">language/de-DE/de-DE.mod_xcalendar.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.com_xcal.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.mod_xcalendar.ini</language>
+	</languages>
+	
+	<media destination="com_xcal" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
+	
+	<administration>
+	
+		<menu link="option=com_xcal&amp;view=xcal" img='../media/com_xcal/images/iconxcal16.png'>COM_XCAL</menu>
+		<submenu>
+			<menu link="option=com_xcal&amp;view=categories" view="categories" img='templates/bluestork/images/menu/icon-16-category.png' alt="Xcal/Categories">COM_XCAL_CATEGORIES</menu>
+			<menu link="option=com_xcal&amp;view=locations" view="locations" img='../media/com_xcal/images/iconlocations16.png' alt="Xcal/Locations">COM_XCAL_LOCATIONS</menu>
+			<menu link="option=com_xcal&amp;view=events" view="events" img='../media/com_xcal/images/iconevent16.png' alt="Xcal/Events">COM_XCAL_EVENTS</menu>
+			<menu link="option=com_xcal&amp;view=registration" view="registration" img='../media/com_xcal/images/iconregistration16.png' alt="Xcal/Registration">COM_XCAL_REGISTRATION</menu>
+        </submenu>
+		
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>xcal.php</filename>
+			<folder>add</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>language</folder>
+      <folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_xcal.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_xcal.sys.ini</language>
+			<language tag="de-DE">language/de-DE/de-DE.com_xcal.ini</language>
+			<language tag="de-DE">language/de-DE/de-DE.com_xcal.sys.ini</language>
+			<language tag="it-IT">language/it-IT/it-IT.com_xcal.ini</language>
+			<language tag="it-IT">language/it-IT/it-IT.com_xcal.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
+

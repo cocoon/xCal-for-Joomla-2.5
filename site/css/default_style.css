@@ -1,0 +1,23 @@
+.clr {clear:both;}
+.evento {padding:10px;}
+.od {background:#ddd;}
+.eq {background:#ccc;}
+.od .dataEv {background:#aaa;}
+.eq .dataEv{background:#888;}
+.dataEv {color:#fff; font-size:40px; text-align:center; line-height:50px; padding:5px; float:left; margin-right:10px;}
+.dataEv span{float:left; width:110px;}
+.evento img{height:110px;}
+#main .evento h2{margin-bottom:0;}
+
+.elenco {}
+#main .xcal ul {list-style-position: none; list-style-type: none; margin: 0; padding: 0;}
+
+.adp-directions{width:100%;}
+
+.xcal img{max-width:100%;}
+
+.xcal-social{float:left;}
+
+.datesList{max-height:100px; overflow:auto; background:#dedede; padding:5px; margin:10px 0; border:1px solid #ccc;}
+
+.xcal .details {background:#dedede; padding:5px; margin:10px 0; border:1px solid #ccc;}

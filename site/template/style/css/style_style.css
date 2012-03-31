@@ -1,0 +1,58 @@
+/* GENERALE */
+	#xcal {width:100%;}
+	#xcal .clr { clear:both; }
+/***/
+
+/* LIST */
+	#xcal .navigator { margin-bottom:10px;}
+	#xcal .navigator button {border:0; padding:5px; color:#fff; background:#f3f3f3;  margin-right:5px; }
+/***/
+
+/* ITEM */
+	#xcal .event {padding:0 1%; margin-bottom:1px;}
+	#xcal .content { width:100% !important; border-top:1px solid #ddd; padding-bottom:15px;}
+	#xcal .content h2 { padding-top:0px; line-height:40px; width:100%; margin-bottom:15px; }
+	#xcal .content h2 .day {display:block; width:40px; height:40px; float:right; font-weight:normal; font-size:30px; border-right:1px solid #ddd; color:#aaa;}
+	#xcal .content h2 .month {display:block; width:40px; line-height:15px; padding:5px; float:right; font-weight:normal; font-size:11px; color:#aaa;}
+	#xcal .content .image {height:250px; overflow:hidden;}
+	#xcal .content .image img{width:100%;}
+/***/
+
+/* EVENT */
+	#xcal .info { padding:1%; background:#f3f3f3; border:1px solid #ccc; text-align:center; margin-bottom:10px; }
+	#xcal .info img { max-width:100%; max-height:400px; border:1px solid #ccc; margin-bottom:10px; }
+	#xcal .info .details label { font-weight:bold; }
+	#xcal .xcal_map { border:1px solid #ccc; }
+/***/
+/* REGISTRATION and FORM */
+	.xcal { width:100%; }
+	.xcal_form {}
+	.xcal_form ul { list-style:none; padding:0px; margin:0px; }
+	.xcal_form ul li { padding:5px; }
+	.xcal_form label { display:block; width:100px; float:left; }
+	.xcal_form input { border:1px solid #ccc; padding:3px; }
+	.xcal_form  .button { background:#c0c0c0; color:#fff; padding:5px; border:none; }
+	.xcal_form  .button:hover { background:#c72031; color:#fff; }
+	.xcal_form .formInfo { font-size:9px; }.fltlft {float:left;}
+	.xcal_form .fieldset { margin:10px 0; background:#f3f3f3; padding:10px; }
+	.xcal_form legend {font-weight:bold;}
+/***/
+/* MOD_XCALENDAR */
+	.xcalendar {font-size:12px;}
+	.xcalendar table th {font-size:12px; font-weight:bold; text-align:center;}
+	.xcalendar table td div { margin:2px; text-align:center; font-size:12px; background:#fff; line-height:25px;}
+	.xcalendar table td .event a { display:block; width:100%; height:100%; color:#fff !important;}
+	.event {}
+	.event .spanEv {display:none;}
+	.event .date {display:none;}
+	.xcalbtn {}
+	.nav .back{display:block; float:left;}
+	.nav .next{display:block; float:right;}
+	.nav .title{text-align:center;}
+	#fin { background:#f3f3f3; border:1px solid #ccc; padding:15px; width:300px;}
+	#fin a.close { float:right; text-decoration:none; }
+	#fin span.img { display:block; width:100px; float:left; margin:4px 0; margin-right:10px;}
+	#fin span.img img {max-width:100px; border:1px solid #ccc;}
+	#fin span {margin-bottom:5px; font-size:9px;}
+	#fin .clr { clear:both; display:block; }
+/***/

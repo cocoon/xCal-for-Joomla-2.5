@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+       <field name="name" type="text" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_LOCATION_NAME" description="COM_XCAL_FORM_DESC_LOCATION_NAME"  default="" 
+                filter="safehtml" /> 
+
+       <field name="city" type="text" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_LOCATION_CITY" description="COM_XCAL_FORM_DESC_LOCATION_CITY"  default="" 
+                filter="safehtml" /> 
+
+       <field name="address" type="text" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_LOCATION_ADDRESS" description="COM_XCAL_FORM_DESC_LOCATION_ADDRESS"  default="Piazza del Colosseo, 3, 00184 Roma, Italia" 
+                filter="safehtml" /> 
+				
+	   <field name="coordinate" type="modal_coordinate" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_LOCATION_COORDINATE" description="COM_XCAL_FORM_DESC_LOCATION_COORDINATE"  /> 
+
+       <field name="desc" type="editor" buttons="true"
+                class="inputbox"
+                filter="safehtml"
+                
+                
+                 label="COM_XCAL_FORM_LBL_LOCATION_DESC" description="COM_XCAL_FORM_DESC_LOCATION_DESC"  /> 
+
+       <field name="params" type="hidden" buttons="true"
+                class="inputbox"
+                filter="safehtml"
+                
+                
+                 label="COM_XCAL_FORM_LBL_LOCATION_PARAMS" description="COM_XCAL_FORM_DESC_LOCATION_PARAMS"  /> 
+
+         <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                class="inputbox"
+                size="1"
+                default="1">
+                <option value="1">JPUBLISHED</option>
+                <option value="0">JUNPUBLISHED</option>
+            </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+                <field name="checked_out_time" type="hidden" filter="unset" />
+	</fieldset>
+
+</form>

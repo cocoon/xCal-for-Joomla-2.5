@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+	<name>xcalendar</name>
+	<author>Monti Francesco</author>
+	<version>2.0.9</version>
+	<description>Modulo base per Joomla in appoggio a xCal 2.0.9</description>
+	<files>
+		<filename module="mod_xcalendar">mod_xcalendar.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+		<folder>js</folder>
+	</files>
+	
+	<!--<languages>
+		<language tag="en-GB">language/en-GB/en-GB.MOD_XCALENDAR.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.MOD_XCALENDAR.ini</language>
+	</languages>-->
+	
+	<config>
+		<fields id="params" name="params" type="fields" label="params" addfieldpath="/administrator/components/com_xcal/models/fields">
+			<fieldset name="FILTER">
+				<field 
+					name="time"
+					type="list"
+					class="inputbox"
+					label="MOD_XCALENDAR_LBL_TIME"
+					description="MOD_XCALENDAR_DESC_TIME"
+					default="0">
+					<option value="0">MOD_XCALENDAR_OPTION_FUTURE</option>
+					<option value="1">MOD_XCALENDAR_OPTION_PAST</option>
+				</field>
+				
+				<field
+					name="mcatid"
+					type="modal_cat"
+					class="inputbox"
+					default="0"
+					label="MOD_XCALENDAR_LBL_CATEGORY"
+					description="MOD_XCALENDAR_DESC_CATEGORY"
+				/>
+				
+				<field
+						name="location"
+						type="modal_param_location"
+						label="MOD_XCALENDAR_LBL_LOCATION"
+						description="MOD_XCALENDAR_DESC_LOCATION"
+						size="40"
+						class="inputbox"
+						default=""
+				/>
+			</fieldset>
+			
+			<fieldset name="VIEW">
+				<field
+						name="template"
+						type="modal_template"
+						label="MOD_XCALENDAR_LBL_TEMPLATE"
+						description="MOD_XCALENDAR_DESC_TEMPLATE"
+						size="40"
+						class="inputbox"
+						default="default"
+				/>
+				<field
+						name="number"
+						type="text"
+						label="MOD_XCALENDAR_LBL_NUMERO"
+						description="MOD_XCALENDAR_DESC_NUMERO"
+						size="40"
+						class="inputbox"
+						default="5"
+				/>
+				<field
+						name="format"
+						type="text"
+						label="MOD_XCALENDAR_LBL_FORMAT"
+						description="MOD_XCALENDAR_DESC_FORMAT"
+						size="40"
+						class="inputbox"
+						default="d-m-Y"
+				/>
+				<field
+						name="itemid"
+						type="text"
+						label="MOD_XCALENDAR_LBL_ITEMID"
+						description="MOD_XCALENDAR_DESC_ITEMID"
+						size="5"
+						class="inputbox"
+						default=""
+				/>
+			</fieldset>
+			
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+       <field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="title" type="text" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_TITLE" description="COM_XCAL_FORM_DESC_EVENT_TITLE" 
+                
+                 required="true" 
+                filter="safehtml" /> 
+
+       <field name="alias" type="hidden" /> 
+
+       <field name="username" type="text" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_USERNAME" description="COM_XCAL_FORM_DESC_EVENT_USERNAME" 
+                
+                
+                filter="safehtml" /> 
+
+       <field name="email" type="text" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_EMAIL" description="COM_XCAL_FORM_DESC_EVENT_EMAIL" 
+                
+                
+                filter="safehtml" /> 
+
+       <field name="catid" type="modal_cat" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_CATID" description="COM_XCAL_FORM_DESC_EVENT_CATID" 
+                
+                 required="true" 
+                filter="safehtml" /> 
+
+       <field name="image" type="media" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_IMAGE" description="COM_XCAL_FORM_DESC_EVENT_IMAGE" 
+                
+                
+                filter="safehtml" /> 
+
+       <field name="file" type="file" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_FILE" description="COM_XCAL_FORM_DESC_EVENT_FILE" 
+                
+                
+                filter="safehtml" /> 
+
+       <field name="dates" type="modal_date" class="inputbox"
+                 required="true" 
+                
+                 label="COM_XCAL_FORM_LBL_EVENT_DATES" description="COM_XCAL_FORM_DESC_EVENT_DATES" /> 
+
+       <field name="next" type="hidden" class="inputbox"
+                
+                
+                 label="COM_XCAL_FORM_LBL_EVENT_NEXT" description="COM_XCAL_FORM_DESC_EVENT_NEXT" 
+                filter="safehtml" /> 
+
+       <field name="time" type="modal_time" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_ORA" description="COM_XCAL_FORM_DESC_EVENT_ORA" 
+                
+                
+                filter="safehtml" /> 
+        
+        <field name="location" type="modal_location" size="40" class="inputbox"
+                 label="COM_XCAL_FORM_LBL_EVENT_LOCATION" description="COM_XCAL_FORM_DESC_EVENT_LOCATION"  default="Colosseo" 
+                filter="safehtml" />
+
+       <field name="desc" type="editor" buttons="true"
+                class="inputbox"
+                filter="safehtml"
+                
+                
+                 label="COM_XCAL_FORM_LBL_EVENT_DESC" description="COM_XCAL_FORM_DESC_EVENT_DESC"  /> 
+
+       <field name="params" type="hidden" buttons="true"
+                class="inputbox"
+                filter="safehtml"
+                
+                
+                 label="COM_XCAL_FORM_LBL_EVENT_PARAMS" description="COM_XCAL_FORM_DESC_EVENT_PARAMS"  /> 
+
+         <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                description="JFIELD_PUBLISHED_DESC"
+                class="inputbox"
+                size="1"
+                default="1">
+                <option value="1">JPUBLISHED</option>
+                <option value="0">JUNPUBLISHED</option>
+            </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+                <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_XCAL_LIST_VIEW_DEFAULT_TITLE">
+		<message>COM_XCAL_LIST_VIEW_DEFAULT_DESC</message>
+	</layout>
+	
+	<fields id="params" name="params" type="fields" label="params" addfieldpath="/administrator/components/com_xcal/models/fields">
+		<fieldset name="FILTER">
+		
+			<field 
+				name="time"
+				type="list"
+				class="inputbox"
+				label="COM_XCAL_LBL_TIME"
+				description="COM_XCAL_DESC_TIME"
+				default="0">
+				<option value="0">COM_XCAL_ALL</option>
+				<option value="1">COM_XCAL_OPTION_FUTURE</option>
+				<option value="2">COM_XCAL_OPTION_PAST</option>
+			</field>
+			
+			<field
+				name="mcatid"
+				type="modal_cat"
+				class="inputbox"
+				default="0"
+				label="COM_XCAL_LBL_CATEGORY"
+				description="COM_XCAL_DESC_CATEGORY"
+			/>
+			
+			<field
+					name="location"
+					type="modal_param_location"
+					label="COM_XCAL_LBL_LOCATION"
+					description="COM_XCAL_DESC_LOCATION"
+					size="40"
+					class="inputbox"
+					default=""
+			/>
+
+			<field
+					name="address"
+					type="text"
+					label="COM_XCAL_LBL_ADDRESS"
+					description="COM_XCAL_DESC_ADDRESS"
+					size="40"
+					class="inputbox"
+					default=""
+			/>
+
+		</fieldset>
+		
+		<fieldset name="VIEW">
+			<field
+					name="template"
+					type="modal_template"
+					label="COM_XCAL_LBL_TEMPLATE"
+					description="COM_XCAL_DESC_TEMPLATE"
+					size="40"
+					class="inputbox"
+					default="default"
+			/>
+			<field
+					name="limit"
+					type="text"
+					label="COM_XCAL_LBL_LIMIT"
+					description="COM_XCAL_DESC_LIMIT"
+					size="40"
+					class="inputbox"
+					default="100"
+			/>
+			<field
+					name="number"
+					type="text"
+					label="COM_XCAL_LBL_NUMERO"
+					description="COM_XCAL_DESC_NUMERO"
+					size="40"
+					class="inputbox"
+					default="5"
+			/>
+			<field
+					name="format"
+					type="text"
+					label="COM_XCAL_LBL_FORMAT"
+					description="COM_XCAL_DESC_FORMAT"
+					size="40"
+					class="inputbox"
+					default="d-M-Y"
+			/>
+			<field
+					name="m_width"
+					type="text"
+					label="COM_XCAL_LBL_MWIDTH"
+					description="COM_XCAL_DESC_MWIDTH"
+					size="5"
+					class="inputbox"
+					default="100%"
+			/>
+			<field
+					name="m_height"
+					type="text"
+					label="COM_XCAL_LBL_MHEIGHT"
+					description="COM_XCAL_DESC_MHEIGHT"
+					size="5"
+					class="inputbox"
+					default="300px"
+			/>
+			<field
+					name="itemid"
+					type="text"
+					label="COM_XCAL_LBL_ITEMID"
+					description="COM_XCAL_DESC_ITEMID"
+					size="5"
+					class="inputbox"
+					default=""
+			/>
+		</fieldset>
+	</fields>
+	
+</metadata>
