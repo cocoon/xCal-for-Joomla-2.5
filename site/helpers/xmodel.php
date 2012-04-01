@@ -214,7 +214,7 @@ class XModelItem extends JModelItem
 		$items=$this->items;
 		//print_r($this); break;
     $itDef=new stdClass;
-		foreach($items as $i){
+		if ($items) foreach($items as $i){
 			$i=$this->ctrlNext($i);
 			$it=new stdClass;
 			$id=$i->id;
@@ -411,7 +411,7 @@ class XModelItem extends JModelItem
 	}
 
 	protected function reg ($i){
-		return '<a class="regis_button" href="'.$this->regUrl($i).'">'.JText::_( 'XCAL_REGISTRATION' ).'</a>';
+		return '<a class="regis_button" href="'.$this->regUrl($i).'" alt="'.JText::_("XCAL_REGISTRATION_DESC").'">'.JText::_( 'XCAL_REGISTRATION' ).'</a>';
 	}
 
 	protected function registered ($i){

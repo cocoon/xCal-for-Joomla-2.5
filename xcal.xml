@@ -8,7 +8,7 @@
 	<authorEmail>web@imgteam.net</authorEmail>
 	<authorUrl>site.imgteam.net</authorUrl>
 	<version>2.1.1</version>
-	<description>COM_XCAL_DESC</description>
+	<description>COM_XCAL_COMPONENT_DESC</description>
 
 	<scriptfile>script.php</scriptfile>
 
