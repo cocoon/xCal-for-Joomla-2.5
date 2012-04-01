@@ -45,7 +45,9 @@
 		<folder>css</folder>
 		<folder>helpers</folder>
 		<folder>js</folder>
-		<folder>models</folder>
+		<!-- it is possible to use language files in component directory -->
+    <!-- <folder>language</folder> -->
+    <folder>models</folder>
 		<folder>template</folder>
 		<folder>views</folder>
 	</files>
@@ -83,7 +85,8 @@
 			<folder>add</folder>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
-			<folder>language</folder>
+		<!-- it is possible to use language files in component directory -->
+    <!-- <folder>language</folder> -->
       <folder>models</folder>
 			<folder>sql</folder>
 			<folder>tables</folder>
