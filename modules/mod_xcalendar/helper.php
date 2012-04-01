@@ -22,7 +22,7 @@ class modXcalendarHelper
 		
 		
 		$date_start=date('Y-m-d');
-		if($_GET['date']) $date_start=$_GET['date'];
+		if($_GET['date']) $date_start=JRequest::getVar( "date", "", "GET", "STRING");
 		// preparo la query
 		$db		= JFactory::getDbo();
 		$query	= $db->getQuery(true);
@@ -38,7 +38,14 @@ class modXcalendarHelper
 		// where
 		$where='e.state = 1';
 		if($time==0) $where.=" AND e.next >= '".$date_start."'";
-		if(isset($_GET['id'])) $where.=' AND e.id = '.$_GET['id'];
+	
+    //if(isset($_GET['id'])) $where.=' AND e.id = '.$_GET['id'];
+		if(isset($_GET['id'])) {
+      $eID = JRequest::getVar( "id", "", "GET", "INT");  //secure way to get variable id as int, it was given in url like "id=2:eventname&cat=2:event-categoryname" 
+      //if (strpos($eID, ':')) $eID=substr($eID, 0, strpos($eID, ':'));
+      $where.=' AND e.id = '.$eID;
+    }
+    
 		if($catid!=0) $where.=' AND e.catid = '.$catid;
 		if($location!='NULL') $where.=' AND e.location LIKE "%'.$location.'%"';
 		$query->where($where);
@@ -49,8 +56,8 @@ class modXcalendarHelper
 		$res = $db->loadObjectList();
 		
 		$days=$this->getDays($date_start, $format);
-		
-		foreach ($res as $r) {
+		//print_r($query);   //for debugging
+		if ($res) foreach ($res as $r) {
 			$next=$this->getNext($r->dates, $r->id);
 			$datelist=$this->getDatelist($r->dates, $next);
 			

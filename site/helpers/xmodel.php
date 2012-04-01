@@ -212,7 +212,7 @@ class XModelItem extends JModelItem
 	protected function items ($atr){
 		$atr=$atr['item'];
 		$items=$this->items;
-		//print_r($this); break;
+		//print_r($this); 
     $itDef=new stdClass;
 		if ($items) foreach($items as $i){
 			$i=$this->ctrlNext($i);
