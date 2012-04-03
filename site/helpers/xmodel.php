@@ -352,7 +352,7 @@ class XModelItem extends JModelItem
 			if($k==0)$format.=$val;
 		}
 		setlocale(LC_TIME, JText::_( 'XCAL_WIN_SERVER_LANG' ), JText::_( 'XCAL_LINUX_SERVER_LANG' ));
-		return strftime($format, $d);
+		return strftime($format, strtotime($d));
 	}
 
 	protected function lat ($i){
