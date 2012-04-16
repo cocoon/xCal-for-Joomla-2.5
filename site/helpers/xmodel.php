@@ -312,7 +312,7 @@ class XModelItem extends JModelItem
 		$days=unserialize($i->dates);
 		$daysUl='<ul class="xDates">';
 		foreach ($days as $k=>$d){
-			$d=$this->formatDate($d);
+			$d=$this->formatDate2($d);
 			$daysUl.='<li>'.$d.'</li>';
 		}
 		$daysUl.='</ul>';
@@ -320,6 +320,42 @@ class XModelItem extends JModelItem
 	}
 
 	protected function formatDate ($d, $for=NULL){
+		if($for==NULL)$for=$this->options['format'];
+		$exformat = explode ('-', $for);
+		foreach($exformat as $k=>$val){
+			switch($val){
+				// day
+				case 'd': $val='%d'; break;
+				case 'D': $val='%a'; break;
+				case 'j': $val='%e'; break;
+				case 'l': $val='%A'; break;
+				case 'N': $val='%u'; break;
+				case 'w': $val='%w'; break;
+				case 'z': $val='%j'; break;
+
+				// week
+				case 'W': $val='%W'; break;
+
+				// month
+				case 'F': $val='%B'; break;
+				case 'm': $val='%m'; break;
+				case 'M': $val='%b'; break;
+				case 'n': $val='%m'; break;
+
+				// year
+				case 'Y': $val='%Y'; break;
+				case 'y': $val='%g'; break;
+
+				default: $val=''; break;		
+			}
+			if($k!=0)$format.='-'.$val;
+			if($k==0)$format.=$val;
+		}
+		setlocale(LC_TIME, JText::_( 'XCAL_WIN_SERVER_LANG' ), JText::_( 'XCAL_LINUX_SERVER_LANG' ));
+		return strftime($format, $d);
+	}
+
+	protected function formatDate2 ($d, $for=NULL){
 		if($for==NULL)$for=$this->options['format'];
 		$exformat = explode ('-', $for);
 		foreach($exformat as $k=>$val){
