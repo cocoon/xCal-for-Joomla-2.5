@@ -40,7 +40,8 @@ class modXcalendarHelper
 		if($time==0) $where.=" AND e.next >= '".$date_start."'";
 	
     //if(isset($_GET['id'])) $where.=' AND e.id = '.$_GET['id'];
-		if(isset($_GET['id'])) {
+    //temporarily disabled this funktion with wrong name com_xcalx because there is a problem with GET-var id if for example articles are displayed
+      if(isset($_GET['id']) && $_GET['option'] == "com_xcalx") {
       $eID = JRequest::getVar( "id", "", "GET", "INT");  //secure way to get variable id as int, it was given in url like "id=2:eventname&cat=2:event-categoryname" 
       //if (strpos($eID, ':')) $eID=substr($eID, 0, strpos($eID, ':'));
       $where.=' AND e.id = '.$eID;
