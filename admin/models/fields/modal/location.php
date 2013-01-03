@@ -28,6 +28,7 @@ class JFormFieldModal_location extends JFormField
 		$query	= $db->getQuery(true);
 		$query->select('a.name, a.id, a.coordinate')
 			->from('`#__xcal_location` AS a');
+		$query->where('a.state = 1');   //states: 0 = unpublished, 1 = published, -2 = deleted 
 		$db->setQuery($query);
 		$loc = $db->loadObjectList();
 
