@@ -7,6 +7,13 @@
 	<div class="items">
 	<?php 
   
+    function compareItems($a, $b)
+  {
+      if ( $a->nextMkt < $b->nextMkt ) return -1;
+      if ( $a->nextMkt > $b->nextMkt ) return 1;
+      return 0; // equality
+  }
+  
   if ($stamp->data->items)
   {
     $stampitems = $stamp->data->items;
@@ -17,6 +24,8 @@
   } 
   
   if($stampitems){
+  
+  uasort($stampitems, "compareItems");
   
     foreach ($stampitems as $item){ ?>
   
