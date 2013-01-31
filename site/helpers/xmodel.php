@@ -194,14 +194,23 @@ class XModelItem extends JModelItem
 
 		// genero il navigatore
 		$nav='<div class="Xnavigator">';
+		//get current URL
+		$navurl =& JURI::getInstance();
 
 		if ($ctrlBack!=NULL){
 			$pageBack=$_GET['page']-1;
-			$nav.='<a class="xcal_back" href="'.JRoute::_(JURI::current().'?page='.$pageBack).'">&#9668</a>';
+			//$nav.='<a class="xcal_back" href="'.JRoute::_(JURI::current().'?page='.$pageBack).'">&#9668</a>';
+			$navurl->setVar( 'page', $pageBack );
+			$nav.='<a class="xcal_back" href="'.$navurl->toString().'">&#9668</a>';
+      			$nav.=' '.JText::_('COM_XCAL_GENERAL_BACKWARDS').' ';
 		}
+		if ($ctrlBack!=NULL || $ctrlNext!=NULL) $nav.="<b>".JText::_('COM_XCAL_GENERAL_PAGE')."</b>";
 		if ($ctrlNext!=NULL){
 			if(!$_GET['page']){$pageNext=2;}else{$pageNext=$_GET['page']+1;}
-			$nav.='<a class="xcal_back" href="'.JRoute::_(JURI::current().'?page='.$pageNext).'">&#9658</a>';
+			//$nav.='<a class="xcal_back" href="'.JRoute::_(JURI::current().'?page='.$pageNext).'">&#9658</a>';
+			$navurl->setVar( 'page', $pageNext );
+			$nav.=' '.JText::_('COM_XCAL_GENERAL_FORWARDS').' ';
+      			$nav.='<a class="xcal_next" href="'.$navurl->toString().'">&#9658</a>';
 		}
 		$nav.='</div>';
 		return $nav;
