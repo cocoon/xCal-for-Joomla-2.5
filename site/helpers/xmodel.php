@@ -153,14 +153,21 @@ class XModelItem extends JModelItem
 
 	protected function navigator ()
 	{
-		// dichiaro i controlli
+    // There is a Bug in MySQL for Select count with Limit > 0
+    // http://bugs.mysql.com/bug.php?id=50005
+    // "LIMITing result set with a LIMIT clause >= 1 does nothing".
+    // A workaround in MySQL could be (for instance) a subquery in the FROM-clause like
+    // SELECT COUNT(*) FROM (SELECT * FROM the_table LIMIT y);
+    
+    
+    // dichiaro i controlli
 		$ctrlNext=NULL;
 		$ctrlBack=NULL;
 
 		// verifico se vi sono altri eventi dopo quelli selezionati
 		$db	= $this->getDbo();
 		$query = $db->getQuery(true);
-		$query->select('count(e.id) AS max')->from('#__xcal_events AS e');
+		$query->select('count(*) AS max')->from('(select e.id FROM #__xcal_events AS e');
 		$filters=$this->filters;
 		$where='e.state ='.$filters['state'];
 		unset($filters['state']);
@@ -184,7 +191,7 @@ class XModelItem extends JModelItem
 		}else{
 			$start = $this->options['number']*($_GET['page']-1);
 		}
-		$query.=' LIMIT '.$start.', '.($this->options['number']+1);
+		$query.=' LIMIT '.$start.', '.($this->options['number']+1).') as sel';
 		$db->setQuery($query);
 		$max=$db->loadObject()->max;
 		if ($max > $this->options['number'])$ctrlNext=1;
@@ -194,6 +201,10 @@ class XModelItem extends JModelItem
 
 		// genero il navigatore
 		$nav='<div class="Xnavigator">';
+    
+    //only for debugging
+    //$nav.="<b>Max: ".$max." Number: ".$this->options['number']." Page: ".$_GET['page']." Query: ".$query." </b>";
+    
 		//get current URL
 		$navurl =& JURI::getInstance();
 
