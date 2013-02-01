@@ -71,7 +71,10 @@ class XModelItem extends JModelItem
 	 */
 	protected function getDBitems()
 	{
-		// preparo la connessione al db
+		// $_GET['page']
+    $pagenum = JRequest::getInt( 'page' );
+    
+    // preparo la connessione al db
 		$db	= $this->getDbo();
 
 
@@ -115,21 +118,21 @@ class XModelItem extends JModelItem
 			}
 			// in caso della categoria
 			if ($k=='e.catid'){
-				$where.=' AND '.$k.'='.$v;
+				$where.=' AND '.$k.'='.(int)$v;
 			}
 			// in caso di id
 			if ($k=='id'){
-				$where.=' AND e.id='.$v;
+				$where.=' AND e.id='.(int)$v;
 			}
 		}
 		$this->where=$where;
 		$query->where($where);
 		// ordino e limito la query
 		$query->order('e.next');
-		if (!$_GET['page']){
+		if (!$pagenum){
 			$start='0';
 		}else{
-			$start = $this->options['number']*($_GET['page']-1);
+			$start = $this->options['number']*($pagenum-1);
 		}
 		$query.=' LIMIT '.$start.', '.$this->options['number'];
 		$db->setQuery($query);
@@ -159,6 +162,8 @@ class XModelItem extends JModelItem
     // A workaround in MySQL could be (for instance) a subquery in the FROM-clause like
     // SELECT COUNT(*) FROM (SELECT * FROM the_table LIMIT y);
     
+    // $_GET['page']
+    $pagenum = JRequest::getInt( 'page' );
     
     // dichiaro i controlli
 		$ctrlNext=NULL;
@@ -183,21 +188,21 @@ class XModelItem extends JModelItem
 			}
 			// in caso della categoria
 			if ($k=='e.catid'){
-				$where.=' AND '.$k.'='.$v;
+				$where.=' AND '.$k.'='.(int) $v;
 			}
 		}
-		if (!$_GET['page']){
+		if (!$pagenum){
 			$start='0';
 		}else{
-			$start = $this->options['number']*($_GET['page']-1);
+			$start = $this->options['number']*($pagenum-1);
 		}
-		$query.=' LIMIT '.$start.', '.($this->options['number']+1).') as sel';
+		$query.=' LIMIT '.(int) $start.', '.($this->options['number']+1).') as sel';
 		$db->setQuery($query);
 		$max=$db->loadObject()->max;
 		if ($max > $this->options['number'])$ctrlNext=1;
 
 		// verifico se vi sono elementi prima di quelli selezionati
-		if($_GET['page'] && $_GET['page']>1)$ctrlBack=1;
+		if($pagenum && $pagenum>1)$ctrlBack=1;
 
 		// genero il navigatore
 		$nav='<div class="Xnavigator">';
@@ -209,7 +214,7 @@ class XModelItem extends JModelItem
 		$navurl =& JURI::getInstance();
 
 		if ($ctrlBack!=NULL){
-			$pageBack=$_GET['page']-1;
+			$pageBack=$pagenum-1;
 			//$nav.='<a class="xcal_back" href="'.JRoute::_(JURI::current().'?page='.$pageBack).'">&#9668</a>';
 			$navurl->setVar( 'page', $pageBack );
 			$nav.='<a class="xcal_back" href="'.$navurl->toString().'">&#9668</a>';
@@ -217,7 +222,7 @@ class XModelItem extends JModelItem
 		}
 		if ($ctrlBack!=NULL || $ctrlNext!=NULL) $nav.="<b>".JText::_('COM_XCAL_GENERAL_PAGE')."</b>";
 		if ($ctrlNext!=NULL){
-			if(!$_GET['page']){$pageNext=2;}else{$pageNext=$_GET['page']+1;}
+			if(!$pagenum){$pageNext=2;}else{$pageNext=$pagenum+1;}
 			//$nav.='<a class="xcal_back" href="'.JRoute::_(JURI::current().'?page='.$pageNext).'">&#9658</a>';
 			$navurl->setVar( 'page', $pageNext );
 			$nav.=' '.JText::_('COM_XCAL_GENERAL_FORWARDS').' ';
